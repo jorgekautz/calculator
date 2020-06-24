@@ -27,7 +27,7 @@
             <input class="btn btn-danger btn-calculator" type="button" value="Clear" (click)="press('C')"/>
           </div>
           <div class="col-md-3">
-            <input class="btn btn-warning btn-calculator" type="button" value="<" (click)="press('<')"/>
+            <input class="btn btn-warning btn-calculator" type="button" value="<" (click)="press('<')" disabled/>
           </div>
           <div class="col-md-3">
             <input class="btn btn-primary btn-calculator" type="button" value="÷" (click)="press('÷')"/>
@@ -77,7 +77,7 @@
         </div>
         <div class="row">
           <div class="col-md-3">
-            <input class="btn btn-secondary btn-calculator" type="button" value="±" (click)="press('±')"/>
+            <input class="btn btn-secondary btn-calculator" type="button" value="±" (click)="press('±')" disabled/>
           </div>
           <div class="col-md-3">
             <input class="btn btn-secondary btn-calculator" type="button" value="0" (click)="press('0')"/>

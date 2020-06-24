@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  history: string;
+  history = '';
   number1: number;
   number2: number;
   operator: string;
@@ -15,35 +15,26 @@ export class AppComponent {
 
   press(key: string): void {
     console.log('Press: ' + key);
-    // Guardo el historial de la calculadora
-    (this.history) ? this.history += ' ' : this.history = '';
     // Evaluo el ingreso del primer número
     if (key === '+' || key === '-' || key === 'x' || key === '÷') {
       this.operator = key;
-      this.history += key;
+      this.history += ' ' + key + ' ';
     } else {
       if (key === '0' || key === '1' || key === '2' || key === '3' || key === '4'
         || key === '5' || key === '6' || key === '7' || key === '8' || key === '9') {
-        const keyNumber = +key;
-        if (this.operator) {
+          this.history += key;
+          if (this.operator) {
           if (this.number2) {
-            this.number2 = (this.number2 * 10) + keyNumber;
+            const separator = ' ' + this.operator + ' ';
+            const numbers = this.history.split(separator);
+            this.number2 = +numbers[1];
           } else {
-            if (keyNumber) {
-              this.number2 = keyNumber;
+            if (+key) {
+              this.number2 = +key;
             }
           }
         } else {
-          if (this.number1) {
-            this.number1 = (this.number1 * 10) + keyNumber;
-          } else {
-            if (keyNumber) {
-              this.number1 = keyNumber;
-            }
-          }
-        }
-        if (!(!this.operator && !this.number1 && key === '0') && !(this.operator && !this.number2 && key === '0')) {
-          this.history += key;
+          this.number1 = +this.history;
         }
       } else {
         if (key === 'C') {
@@ -53,7 +44,7 @@ export class AppComponent {
             this.back();
           } else {
             if (key === '=') {
-              this.history += key;
+              this.history += ' ' + key;
               let resultNumber: number;
               if (this.number1 && this.operator && this.number2) {
                 switch (this.operator) {
@@ -86,15 +77,23 @@ export class AppComponent {
                   this.history += ' ' + this.result;
                 }
               }
+            } else {
+              if (key === '.') {
+                if (this.history) {
+                  this.history += '.';
+                }
+              }
             }
           }
         }
       }
     }
+    console.log('number1: ' + this.number1);
+    console.log('number2: ' + this.number2);
   }
 
   private clear(): void {
-    this.history = undefined;
+    this.history = '';
     this.number1 = undefined;
     this.number2 = undefined;
     this.operator = undefined;
@@ -107,7 +106,8 @@ export class AppComponent {
       if (this.number2) {
         module = this.number2 % 10;
         this.number2 = (this.number2 - module) / 10;
-        this.history = this.number1.toString() + ' ' + this.operator + this.number2.toString();
+        this.history = this.number1.toString() + ' '
+          + this.operator + this.number2.toString();
       }
     } else {
       if (this.number1) {
