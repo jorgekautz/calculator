@@ -334,8 +334,8 @@ svg#rocket-smoke {
 .calculator {
     margin-top: 2rem;
     border-radius: 0.5rem;
-    height: auto;
-    width: auto;
+    height: auto !important;
+    width: auto !important;
     box-shadow: $sombraLight;
     padding: 0;
 
@@ -345,7 +345,7 @@ svg#rocket-smoke {
         font-weight: 500;
     }
 
-    .col-md-3, .col-md-6, .col-md-12, form {
+    .col-3, .col-6, .col-12, form {
         padding: 0.5rem; 
     }
 

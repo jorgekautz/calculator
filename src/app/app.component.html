@@ -18,79 +18,79 @@
     <span>Calculadora básica</span>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-sm-5 col-md-4">
       <div class="card calculator">
         <form>
           <div class="row">
-            <div class="col-md-12 text-right">
+            <div class="col-12 text-right">
               <p class="result">{{result}}</p>
               <span class="small history">{{history}}</span>
             </div>
           </div>
           <div class="row" id="firstRow">
-            <div class="col-md-6">
+            <div class="col-6">
               <input class="btn btn-danger btn-calculator" type="button" value="Clear" (click)="press('C')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-warning btn-calculator" type="button" value="<" (click)="press('<')" disabled/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-primary btn-calculator" type="button" value="÷" (click)="press('÷')"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="7" (click)="press('7')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="8" (click)="press('8')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="9" (click)="press('9')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-primary btn-calculator" type="button" value="x" (click)="press('x')"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="4" (click)="press('4')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="5" (click)="press('5')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="6" (click)="press('6')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-primary btn-calculator" type="button" value="-" (click)="press('-')"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-3">
               <span class="btn btn-secondary btn-calculator" type="button" (click)="press('1')">1</span>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="2" (click)="press('2')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="3" (click)="press('3')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-primary btn-calculator" type="button" value="+" (click)="press('+')"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="±" (click)="press('±')" disabled/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="0" (click)="press('0')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-secondary btn-calculator" type="button" value="." (click)="press('.')"/>
             </div>
-            <div class="col-md-3">
+            <div class="col-3">
               <input class="btn btn-success btn-calculator" type="button" value="=" (click)="press('=')"/>
             </div>
           </div>
