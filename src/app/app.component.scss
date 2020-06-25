@@ -13,10 +13,6 @@ $sombraLight: 5px 5px 10px rgba(170, 170, 170, 0.2);
         color: #e4e5e6 !important;
     }
 
-    body.dark & .toolbar {
-        background-color: #104d89;
-    }
-
     body.dark & .calculator {
         background-color: #222222;
         border: none;
@@ -75,7 +71,7 @@ flex: 1;
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    background-color: #104d89;
     color: white;
     font-weight: 600;
 }
