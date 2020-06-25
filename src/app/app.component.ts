@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app';
   history = ' ';
   number1: number;
   number2: number;
   operator: string;
   result = '0';
+
+  ngOnInit(): void {
+    if (localStorage.getItem('dark-mode') === 'true') {
+      this.modeDark();
+    }
+  }
 
   press(key: string): void {
     document.querySelector('#firstRow').classList.add('m-top');
@@ -121,5 +127,11 @@ export class AppComponent {
   modeDark(): void {
     document.body.classList.toggle('dark');
     document.querySelector('#switch').classList.toggle('active');
+
+    if (document.body.classList.contains('dark')) {
+      localStorage.setItem('dark-mode', 'true');
+    } else {
+      localStorage.setItem('dark-mode', 'false');
+    }
   }
 }
