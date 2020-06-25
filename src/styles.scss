@@ -1,1 +1,10 @@
-@import "~bootstrap/scss/bootstrap"
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: #e4e5e6;
+
+    &.dark {
+        background-color: #111111;
+        color: #e4e5e6;
+    }
+}

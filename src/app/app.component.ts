@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  history = '';
+  history = ' ';
   number1: number;
   number2: number;
   operator: string;
   result = '0';
 
   press(key: string): void {
-    console.log('Press: ' + key);
+    document.querySelector('#firstRow').classList.add('m-top');
     // Evaluo el ingreso del primer número
     if (key === '+' || key === '-' || key === 'x' || key === '÷') {
       this.operator = key;
@@ -118,4 +118,8 @@ export class AppComponent {
     }
   }
 
+  modeDark(): void {
+    document.body.classList.toggle('dark');
+    document.querySelector('#switch').classList.toggle('active');
+  }
 }

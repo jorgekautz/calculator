@@ -1,10 +1,53 @@
+$sombraDark: 5px 5px 10px rgba(0, 0, 0, 0.2);
+$sombraLight: 5px 5px 10px rgba(170, 170, 170, 0.2);
+
 :host {
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-font-size: 14px;
-color: #333;
-box-sizing: border-box;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    body.dark & {
+        color: #e4e5e6 !important;
+    }
+
+    body.dark & .toolbar {
+        background-color: #104d89;
+    }
+
+    body.dark & .calculator {
+        background-color: #222222;
+        border: none;
+        box-shadow: $sombraDark;
+    }
+
+    body.dark & .btn-primary {
+        background-color: #5fa6ec;
+        border-color: #5fa6ec;
+        color: #333;
+    }
+    body.dark & .btn-success {
+        background-color: #5bd778;
+        border-color: #5bd778;
+        color: #333;
+    }
+    body.dark & .btn-warning {
+        background-color: #ffd966;
+        border-color: #ffd966;
+        color: #333;
+    }
+    body.dark & .btn-danger {
+        background-color: #e87d88;
+        border-color: #e87d88;
+        color: #333;
+    }
+    body.dark & .btn-secondary {
+        background-color: #a0a6ac;
+        border-color: #a0a6ac;
+        color: #333;
+    }
 }
 
 h1,
@@ -25,16 +68,16 @@ flex: 1;
 }
 
 .toolbar {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 60px;
-display: flex;
-align-items: center;
-background-color: #1976d2;
-color: white;
-font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
 }
 
 .toolbar img {
@@ -290,8 +333,11 @@ svg#rocket-smoke {
 // Calculator
 .calculator {
     margin-top: 2rem;
-    border: 1px solid gray;
     border-radius: 0.5rem;
+    height: auto;
+    width: auto;
+    box-shadow: $sombraLight;
+    padding: 0;
 
     div div .btn-calculator {
         width: 100%;
@@ -300,15 +346,69 @@ svg#rocket-smoke {
     }
 
     .col-md-3, .col-md-6, .col-md-12, form {
-        padding: 0.5rem;
+        padding: 0.5rem; 
     }
 
     .result {
         font-size: 2.5rem;
         font-family: 'Orbitron', sans-serif;
+        padding-bottom: 0.3rem;
     }
 
     .history {
         color: grey;
+    }
+
+    .m-top {
+        margin-top: -0.7rem;
+    }
+}
+
+// Switch
+.switch {
+    margin-right: 1rem;
+    background: #343d5b;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 27px;
+        height: 27px;
+        position: absolute;
+        background: #f1f1f1;
+        top: 0;
+        left: 0;
+        right: unset;
+        border-radius: 100px;
+        transition: 3s ease all;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    &.active {
+        background: #ffc107;
+
+        &::after {
+            right: 0;
+            left: unset;
+        }
+
+        & span {
+            color: #333;
+        }
+    }
+
+    span {
+        width: 22px;
+        height: 25px;
+        line-height: 25px;
+        display: block;
+        background: none;
+        color: #fff;
     }
 }
