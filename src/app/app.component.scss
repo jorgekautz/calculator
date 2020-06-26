@@ -12,6 +12,9 @@ $sombraLight: 5px 5px 10px rgba(170, 170, 170, 0.2);
     body.dark & {
         color: #e4e5e6 !important;
     }
+    body.dark & .history {
+        color: #bdbfc2 !important;
+    }
 
     body.dark & .calculator {
         background-color: #222222;

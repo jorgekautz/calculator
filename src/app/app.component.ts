@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   number1: number;
   number2: number;
   operator: string;
+  operatorOld: string;
   result = '0';
 
   ngOnInit(): void {
@@ -23,13 +24,19 @@ export class AppComponent implements OnInit{
     document.querySelector('#firstRow').classList.add('m-top');
     // Evaluo el ingreso del primer número
     if (key === '+' || key === '-' || key === 'x' || key === '÷') {
+      if (this.number2) {
+        this.operatorOld = this.operator;
+        this.calcule();
+        this.number1 = +this.result;
+        this.number2 = undefined;
+      }
       this.operator = key;
       this.history += ' ' + key + ' ';
     } else {
       if (key === '0' || key === '1' || key === '2' || key === '3' || key === '4'
         || key === '5' || key === '6' || key === '7' || key === '8' || key === '9') {
-          this.history += key;
-          if (this.operator) {
+        this.history += key;
+        if (this.operator) {
           if (this.number2) {
             const separator = ' ' + this.operator + ' ';
             const numbers = this.history.split(separator);
@@ -51,32 +58,8 @@ export class AppComponent implements OnInit{
           } else {
             if (key === '=') {
               this.history += ' ' + key;
-              let resultNumber: number;
               if (this.number1 && this.operator && this.number2) {
-                switch (this.operator) {
-                  case '+':
-                    resultNumber = this.number1 + this.number2;
-                    this.result = resultNumber.toString();
-                    break;
-                  case '-':
-                    resultNumber = this.number1 - this.number2;
-                    this.result = resultNumber.toString();
-                    break;
-                  case 'x':
-                    resultNumber = this.number1 * this.number2;
-                    this.result = resultNumber.toString();
-                    break;
-                  case '÷':
-                    console.log('2. Number2: ' + this.number2);
-                    if (this.number2 === undefined) {
-                      this.result = 'ERROR';
-                    } else {
-                      resultNumber = this.number1 / this.number2;
-                      this.result = resultNumber.toString();
-                    }
-                    break;
-                  default:
-                }
+                this.calcule();
                 if (this.result === 'ERROR') {
                   this.history = '';
                 } else {
@@ -96,6 +79,34 @@ export class AppComponent implements OnInit{
     }
     console.log('number1: ' + this.number1);
     console.log('number2: ' + this.number2);
+  }
+
+  private calcule() {
+    let resultNumber: number;
+    switch (this.operator) {
+      case '+':
+        resultNumber = this.number1 + this.number2;
+        this.result = resultNumber.toString();
+        break;
+      case '-':
+        resultNumber = this.number1 - this.number2;
+        this.result = resultNumber.toString();
+        break;
+      case 'x':
+        resultNumber = this.number1 * this.number2;
+        this.result = resultNumber.toString();
+        break;
+      case '÷':
+        console.log('2. Number2: ' + this.number2);
+        if (this.number2 === undefined) {
+          this.result = 'ERROR';
+        } else {
+          resultNumber = this.number1 / this.number2;
+          this.result = resultNumber.toString();
+        }
+        break;
+      default:
+    }
   }
 
   private clear(): void {
