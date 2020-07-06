@@ -1,6 +1,6 @@
 # Aplicación
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) en su versión 9.1.9.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) en su versión 10.0.0.
 
 ## Servidor de desarrollo
 
